@@ -38,13 +38,10 @@ function App() {
         <div className="App">
             <Switch>
                 <Route exact path={"/"} render={() => <Blog />}/>
-                <Route path={"/create_post"} render={() => <CreatePost/>}/>
-                <Route path={"/post"} render={() => <Post/>}/>
+                <Route exact path={"/create_post"} render={() => <CreatePost/>}/>
+                <Route exact path={"/post"} render={() => <Post/>}/>
                 <Route path={"/404"} render={() => <Component404/>}/>
                 <Redirect from={'*'} to={"/404"}/>
-            // path='/' blog
-            // path='/edit' Editblog
-            // path='/post/:postid' Post
             </Switch>
         </div>
     );
