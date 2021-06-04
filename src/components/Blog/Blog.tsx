@@ -1,30 +1,16 @@
-import React, {useReducer} from 'react';
+import React, {useState} from 'react';
 import './Blog.css';
 import {Button, Typography} from '@material-ui/core';
+import {Redirect} from "react-router-dom";
 
-export type MessageType = {
-    id: string
-    title: string
-    message: string
-}
-
-const initialState: Array<MessageType> = [];
-
-function reducer(state: Array<MessageType>, action: any) {
-    switch (action.type) {
-        case 'increment':
-            return {...state};
-        case 'decrement':
-            return {...state};
-        default:
-            return {...state};
-    }
-}
 
 function Blog() {
-    const [state, dispatch] = useReducer(reducer, initialState)
-    const onAddMessage = () => {
-        alert('Hi')
+    const [isRedirectToCreate, setRedirectToCreate] = useState(false);
+    const onAddMessage = ()=> {
+        setRedirectToCreate(true);
+    }
+    if (isRedirectToCreate) {
+        return (<Redirect to={"/create_post"}/>)
     }
     return (
         <div>
