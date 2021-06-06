@@ -41,7 +41,7 @@ function CreatePost(props: CreatePostPropsType) {
                         </label>
                     </div>
                     <div>
-                        <input type={"submit"} value={"Submit"}/>
+                        <input type={"submit"} value={"Add post"}/>
                     </div>
                 </form>
             <NavLink to={'/blog'}>
