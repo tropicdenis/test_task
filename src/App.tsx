@@ -48,7 +48,7 @@ function App() {
         dispatch(addTaskAC(title, message))
     }
     return (
-        <div className="App">
+        <div>
             <Switch>
                 <Route exact path={"/"} render={() => <Redirect to={'/blog'}/>}/>
                 <Route path={"/blog"} render={() => <Blog posts={state}/>}/>

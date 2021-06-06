@@ -10,7 +10,7 @@ export type BlogPropsType = {
 
 function Blog(props: BlogPropsType) {
     const [isRedirectToCreate, setRedirectToCreate] = useState(false);
-    const [isShowPost, setShowPost] = useState (false);
+   /* const [isShowPost, setShowPost] = useState (false);*/
 
     const onAddMessage = ()=> {
         setRedirectToCreate(true);
@@ -19,27 +19,33 @@ function Blog(props: BlogPropsType) {
         return (<Redirect to={"/create_post"}/>)
     }
 
-    const showPost = (id:string) => {
+   /* const showPost = (id:string) => {
         setShowPost(true)
     }
     if (isShowPost) {
         return (<Redirect to={"/post/:id"}/>)
-    }
+    }*/
 
     return (
-        <div>
+        <div className={"main"}>
             <div className={"header"}>
                 <Typography variant="h3">
-                    Blog
+                    Test Blog
                 </Typography>
             </div>
             <div className={"messages"}>
                 {props.posts.map(post => (
                     <NavLink to={'/post/' + post.id}>
-                        <div>
-                            Title: {post.title}
-                            Post: {post.message}
-                            Post created: {post.date.toLocaleDateString()}
+                        <div className={"post"}>
+                            <div>
+                               {post.title}
+                            </div>
+                            <div>
+                                {post.message}
+                            </div>
+                           <div>
+                              {post.date.toLocaleString()}
+                           </div>
                         </div>
                     </NavLink>
 

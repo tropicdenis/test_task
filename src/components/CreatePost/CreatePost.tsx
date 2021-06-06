@@ -9,10 +9,10 @@ type Inputs = {
 };
 
 export type CreatePostPropsType = {
-    addPost: (title:string, message:string)=> void
+    addPost: (title: string, message: string) => void
 }
 
-function CreatePost(props:CreatePostPropsType) {
+function CreatePost(props: CreatePostPropsType) {
     const [isSubmited, setSubmit] = useState(false)
     const {register, handleSubmit} = useForm<Inputs>();
     const onSubmit = (data: Inputs) => {
@@ -23,23 +23,29 @@ function CreatePost(props:CreatePostPropsType) {
         return <Redirect to={'/'}/>
     }
     return (
-        <div className="App">
-            <Typography>
-                Adding post page
+        <div className="main">
+            <Typography variant={"h3"}>
+                Add post page
             </Typography>
-            <form onSubmit={handleSubmit(onSubmit)}>
-                <label>
-                    Title
-                    <Input {...register("title")}/>
-                </label>
-                <label>
-                    Post
-                    <Input {...register("message")}/>
-                </label>
-                    <Input type={"submit"} value={"Submit"}/>
-            </form>
+                <form onSubmit={handleSubmit(onSubmit)}>
+                    <div>
+                        <label>
+                            Title
+                            <input {...register("title")}/>
+                        </label>
+                    </div>
+                    <div>
+                        <label>
+                            Post
+                            <input {...register("message")}/>
+                        </label>
+                    </div>
+                    <div>
+                        <input type={"submit"} value={"Submit"}/>
+                    </div>
+                </form>
             <NavLink to={'/blog'}>
-                <Button>Back</Button>
+                <Button  variant="contained" color="primary">Back</Button>
             </NavLink>
         </div>
     );
